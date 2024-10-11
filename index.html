@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pets Shop</title>
+    <!-- daisyUi -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- font awesome  -->
+    <script src="https://kit.fontawesome.com/fb58c17c69.js" crossorigin="anonymous"></script>
+    <!-- google lato font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<!-- <button class="bg-[#0E7A81] btn text-white mt-3">View More</button> -->
+
+<body class="font-lato">
+    <header class="max-w-[1320px] mx-auto">
+        <div class="navbar bg-base-100">
+            <div class="navbar-start">
+                <div class="dropdown">
+                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h8m-8 6h16" />
+                        </svg>
+                    </div>
+                    <ul tabindex="0"
+                        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                        <li><a>Home</a></li>
+                        <li>
+                            <a href="">Shop</a>
+                        </li>
+                        <li><a>Contact</a></li>
+                    </ul>
+                </div>
+                <a class="text-xl flex gap-2" href="index.html">
+                    <img src="./images/logo.webp" alt="">
+                    <p>Peddy</p>
+                </a>
+            </div>
+
+            <div class="navbar-center hidden lg:flex">
+                <ul class="menu menu-horizontal px-1">
+                    <li><a>Home</a></li>
+                    <li>
+                        <a href="">Shop</a>
+                    </li>
+                    <li><a>Contact</a></li>
+                </ul>
+            </div>
+            <div class="navbar-end">
+                <a class="btn rounded-full"><i class="fa-regular fa-user"></i></a>
+            </div>
+        </div>
+    </header>
+    <main class="max-w-[1320px] mx-auto p-3">
+        <!-- header section  -->
+        <section class="pt-4">
+            <div class="text-center md:w-1/2 mx-auto">
+                <h1 class="text-xl font-semibold text-gray-500">Bringing Families Together 🔥</h1>
+                <h1 class="md:text-6xl text-3xl pt-4 font-semibold">Your Path to Adoption Starts Here</h1>
+                <p class="mt-3">It is a long established fact that a reader will be distracted by the readable content
+                    of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
+                <a href="#all-pet-section">
+                    <button class="bg-[#0E7A81] btn text-white mt-3">View More</button>
+                </a>
+            </div>
+            <div class="flex items-center justify-center">
+                <img class="" src="./images/pet.webp" alt="">
+            </div>
+
+        </section>
+
+        <section id="all-pet-section">
+            <!-- title  -->
+            <div class="text-center md:w-1/2 mx-auto">
+                <h1 class="md:text-6xl text-3xl font-semibold">Adopt Your Best Friend</h1>
+                <p class="text-gray-400 mt-5">It is a long established fact that a reader will be distracted by the
+                    readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has
+                    a.</p>
+            </div>
+
+            <!-- categories btn  -->
+            <div id="categories-btn-container" class="mt-6 md:flex grid grid-cols-2 gap-2 items-center justify-around">
+            </div>
+
+            <!-- sort by price section  -->
+            <div class="flex justify-between items-center mt-4">
+                <h1 class="text-2xl font-bold">Best Deal For you</h1>
+                <button onclick="handleSort()" class="bg-[#0E7A81] btn text-white mt-3">Sort By Price</button>
+            </div>
+
+            <!-- display pets  -->
+            <div class="grid lg:grid-cols-4 grid-cols-3 my-6 md:gap-3 gap-1" id="pet-display-section">
+                <!-- left side -->
+                <div class="lg:col-span-3 col-span-2 border rounded-xl ">
+                    <div id="loadingImage" class="hidden col-span-3">
+                        <img class="mx-auto" src="./images/docLoader.gif" alt="">
+                    </div>
+                    <div id="card-container" class="grid lg:grid-cols-3 md:grid-cols-2 gap-3 md:p-4">
+                    </div>
+                </div>
+
+                <!-- right side -->
+                <div class="md:p-5 p-2 rounded-xl border">
+                    <div id="pitLikeOutput" class="grid md:grid-cols-2 grid-cols-1 md:gap-5 gap-2">
+                        <h1 id="hiddenPetTitle" class="text-xl font-bold md:col-span-2">Please like any pet!!</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Open the modal using ID.showModal() method -->
+        <div id="petDetialsContainer">
+        </div>
+        </dialog>
+        </div>
+
+        <div id="countDownContainer">
+
+        </div>
+    </main>
+
+    <footer class="bg-[#131313] md:p-4" id="footerSection">
+        <div class="max-w-[1320px] mx-auto md:flex grid grid-cols-2 md:py-20 justify-between p-4 gap-3">
+            <div class="text-white">
+                <a class="text-xl flex gap-2" href="index.html">
+                    <img src="./images/logo.webp" alt="">
+                    <p>Peddy</p>
+                </a>
+                <div class="text-white mt-4 space-y-2">
+                    <p>Location: av. Washington 165, NY CA </p>
+                    <p>54003</p>
+                    <p>Phone: +31 85 964 47 25</p>
+                    <p>Email: info@yourdomain.com</p>
+                    <p> hours: 9.00 AM - 5.00 PM</p>
+                </div>
+                <div class="text-white flex gap-3 mt-3">
+                    <button><i class="fa-brands fa-facebook"></i></button>
+                    <button><i class="fa-brands fa-x-twitter"></i></button>
+                    <button><i class="fa-brands fa-youtube"></i></button>
+                    <button><i class="fa-brands fa-instagram"></i></button>
+                </div>
+            </div>
+
+            <div class="text-white">
+                <h1 class="text-xl font-bold">Useful Links</h1>
+                <div class="text-white mt-4 space-y-2">
+                    <p>Home</p>
+                    <p>About Us</p>
+                    <p>Animals</p>
+                    <p>Foundation</p>
+                    <p>Contact</p>
+                </div>
+
+            </div>
+            <div class="text-white col-span-2">
+                <h1 class="text-xl font-bold">Drop a Message</h1>
+                <div class="text-white mt-4 space-y-2 flex flex-col">
+                    <input class="px-4 py-2 rounded-xl bg-gray-800" type="email" name="" id=""
+                        placeholder="Enter Yout Email">
+                    <button class="border-none bg-[#0E7A81] btn text-white mt-3">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="./scripts/pet.js"></script>
+</body>
+
+</html>
